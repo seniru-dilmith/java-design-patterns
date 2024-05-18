@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/creational/abstract-factory/abstract-factory.iml" filepath="$PROJECT_DIR$/creational/abstract-factory/abstract-factory.iml" />
+      <module fileurl="file://$PROJECT_DIR$/structural/adapter/adapter.iml" filepath="$PROJECT_DIR$/structural/adapter/adapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/structural/bridge/bridge.iml" filepath="$PROJECT_DIR$/structural/bridge/bridge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/creational/builder/builder.iml" filepath="$PROJECT_DIR$/creational/builder/builder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/behavioural/chain-of-responsibility/chain-of-responsibility.iml" filepath="$PROJECT_DIR$/behavioural/chain-of-responsibility/chain-of-responsibility.iml" />
+      <module fileurl="file://$PROJECT_DIR$/behavioural/command/command.iml" filepath="$PROJECT_DIR$/behavioural/command/command.iml" />
+      <module fileurl="file://$PROJECT_DIR$/structural/composite/composite.iml" filepath="$PROJECT_DIR$/structural/composite/composite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/structural/decorator/decorator.iml" filepath="$PROJECT_DIR$/structural/decorator/decorator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/design-patterns-practice.iml" filepath="$PROJECT_DIR$/.idea/design-patterns-practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/structural/facade/facade.iml" filepath="$PROJECT_DIR$/structural/facade/facade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/creational/factory-method/factory-method.iml" filepath="$PROJECT_DIR$/creational/factory-method/factory-method.iml" />
+      <module fileurl="file://$PROJECT_DIR$/behavioural/interpreter/interpreter.iml" filepath="$PROJECT_DIR$/behavioural/interpreter/interpreter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/behavioural/iterator/iterator.iml" filepath="$PROJECT_DIR$/behavioural/iterator/iterator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/behavioural/mediator/mediator.iml" filepath="$PROJECT_DIR$/behavioural/mediator/mediator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/behavioural/memento/memento.iml" filepath="$PROJECT_DIR$/behavioural/memento/memento.iml" />
+      <module fileurl="file://$PROJECT_DIR$/behavioural/observer/observer.iml" filepath="$PROJECT_DIR$/behavioural/observer/observer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/creational/prototype/prototype.iml" filepath="$PROJECT_DIR$/creational/prototype/prototype.iml" />
+      <module fileurl="file://$PROJECT_DIR$/structural/proxy/proxy.iml" filepath="$PROJECT_DIR$/structural/proxy/proxy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/creational/singleton/singleton.iml" filepath="$PROJECT_DIR$/creational/singleton/singleton.iml" />
+      <module fileurl="file://$PROJECT_DIR$/behavioural/state/state.iml" filepath="$PROJECT_DIR$/behavioural/state/state.iml" />
+      <module fileurl="file://$PROJECT_DIR$/behavioural/strategy/strategy.iml" filepath="$PROJECT_DIR$/behavioural/strategy/strategy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/behavioural/template/template.iml" filepath="$PROJECT_DIR$/behavioural/template/template.iml" />
+      <module fileurl="file://$PROJECT_DIR$/behavioural/visitor/visitor.iml" filepath="$PROJECT_DIR$/behavioural/visitor/visitor.iml" />
+    </modules>
+  </component>
+</project>
