@@ -43,3 +43,8 @@ Design patterns are divided into three main categories:
 9. [Template Method](MarkDowns/behavioural/TemplateMethod.md)
 10. [Visitor](MarkDowns/behavioural/Visitor.md)
 11. [Interpreter](MarkDowns/behavioural/Interpreter.md)
+
+## License
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
+
