@@ -16,7 +16,7 @@ Design patterns are divided into three main categories:
 ## Contents
 
 ### Creational Patterns
-1. [Abstract Factory](sandbox:/mnt/data/AbstractFactory.md)
+1. [Abstract Factory](seniru-dilmith/java-design-patterns/blob/master/MarkDowns/creational/AbstractFactory.md)
 2. [Builder](sandbox:/mnt/data/Builder.md)
 3. [Factory Method](sandbox:/mnt/data/FactoryMethod.md)
 4. [Prototype](sandbox:/mnt/data/Prototype.md)
