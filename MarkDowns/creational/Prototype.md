@@ -7,7 +7,7 @@ Prototype pattern allows you to copy existing objects without making your code d
 ## Java Code Example
 
 ```java
-interface Prototype extends Cloneable {
+interface Prototype extends {
     Prototype clone();
 }
 
