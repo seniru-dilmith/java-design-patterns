@@ -7,43 +7,101 @@ Decorator pattern allows behavior to be added to an individual object, dynamical
 ## Java Code Example
 
 ```java
-interface Car {
-    void assemble();
+// Coffee interface
+interface Coffee {
+    String getDescription();
+    double getCost();
 }
 
-class BasicCar implements Car {
-    public void assemble() {
-        System.out.print("Basic Car.");
+// SimpleCoffee class that implements Coffee
+class SimpleCoffee implements Coffee {
+    @Override
+    public String getDescription() {
+        return "Simple coffee";
+    }
+
+    @Override
+    public double getCost() {
+        return 2.0;
     }
 }
 
-class CarDecorator implements Car {
-    protected Car decoratedCar;
-    
-    public CarDecorator(Car c) {
-        this.decoratedCar = c;
-    }
-    
-    public void assemble() {
-        this.decoratedCar.assemble();
-    }   
-}
+// Abstract decorator class that implements Coffee
+abstract class CoffeeDecorator implements Coffee {
+    protected Coffee decoratedCoffee;
 
-class SportsCar extends CarDecorator {
-    public SportsCar(Car c) {
-        super(c);
+    public CoffeeDecorator(Coffee coffee) {
+        this.decoratedCoffee = coffee;
     }
 
-    public void assemble() {
-        super.assemble();
-        System.out.print(" Adding features of Sports Car.");
+    @Override
+    public String getDescription() {
+        return decoratedCoffee.getDescription();
+    }
+
+    @Override
+    public double getCost() {
+        return decoratedCoffee.getCost();
     }
 }
 
-public class DecoratorPattern {
+// MilkDecorator class that extends CoffeeDecorator
+class MilkDecorator extends CoffeeDecorator {
+    public MilkDecorator(Coffee coffee) {
+        super(coffee);
+    }
+
+    @Override
+    public String getDescription() {
+        return decoratedCoffee.getDescription() + ", Milk";
+    }
+
+    @Override
+    public double getCost() {
+        return decoratedCoffee.getCost() + 0.5;
+    }
+}
+
+// SugarDecorator class that extends CoffeeDecorator
+class SugarDecorator extends CoffeeDecorator {
+    public SugarDecorator(Coffee coffee) {
+        super(coffee);
+    }
+
+    @Override
+    public String getDescription() {
+        return decoratedCoffee.getDescription() + ", Sugar";
+    }
+
+    @Override
+    public double getCost() {
+        return decoratedCoffee.getCost() + 0.2;
+    }
+}
+
+// Main class to test the decorator pattern
+public class DecoratorPatternDemo {
     public static void main(String[] args) {
-        Car sportsCar = new SportsCar(new BasicCar());
-        sportsCar.assemble();
+        Coffee coffee = new SimpleCoffee();
+        System.out.println(coffee.getDescription() + " Cost: $" + coffee.getCost());
+
+        coffee = new MilkDecorator(coffee);
+        System.out.println(coffee.getDescription() + " Cost: $" + coffee.getCost());
+
+        coffee = new SugarDecorator(coffee);
+        System.out.println(coffee.getDescription() + " Cost: $" + coffee.getCost());
+
+        coffee = new MilkDecorator(coffee);
+        System.out.println(coffee.getDescription() + " Cost: $" + coffee.getCost());
     }
 }
 ```
+
+In this example:
+
+* `SimpleCoffee` is the basic component that implements the `Coffee` interface.
+* `CoffeeDecorator` is an abstract class that implements the `Coffee` interface and contains a reference to a `Coffee` object.
+* `MilkDecorator` and `SugarDecorator` are concrete decorators that extend `CoffeeDecorator` and add their own behavior to the `getDescription` and `getCost` methods.
+
+When you run the `DecoratorPatternDemo` class, it will output the descriptions and costs of the coffee as it gets decorated with milk and sugar.
+
