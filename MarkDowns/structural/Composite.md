@@ -10,58 +10,62 @@ Composite pattern allows you to compose objects into tree structures to represen
 import java.util.ArrayList;
 import java.util.List;
 
-interface Employee {
-    void showEmployeeDetails();
+interface FileSystemElement {
+    void listFiles();
 }
 
-class Developer implements Employee {
+class File implements FileSystemElement {
     private String name;
-    private long empId;
-    private String position;
-    
-    public Developer(long empId, String name, String position) {
-        this.empId = empId;
+
+    public File(String name) {
         this.name = name;
-        this.position = position;
     }
-    
-    public void showEmployeeDetails() {
-        System.out.println(empId + " " + name);
+
+    @Override
+    public void listFiles() {
+        System.out.println(name);
     }
 }
 
-class Manager implements Employee {
+class Directory implements FileSystemElement {
     private String name;
-    private long empId;
-    private String position;
-    private List<Employee> employees = new ArrayList<>();
-    
-    public Manager(long empId, String name, String position) {
-        this.empId = empId;
+    private List<FileSystemElement> elements;
+
+    public Directory(String name) {
         this.name = name;
-        this.position = position;
+        this.elements = new ArrayList<>();
     }
-    
-    public void addEmployee(Employee emp) {
-        employees.add(emp);
+
+    public void addElement(FileSystemElement element) {
+        elements.add(element);
     }
-    
-    public void showEmployeeDetails() {
-        System.out.println(empId + " " + name);
-        for (Employee emp : employees) {
-            emp.showEmployeeDetails();
+
+    @Override
+    public void listFiles() {
+        System.out.println(name + ":");
+        for (FileSystemElement element : elements) {
+            element.listFiles();
         }
     }
 }
 
-public class CompositePattern {
+public class FileSystemClient {
     public static void main(String[] args) {
-        Developer dev1 = new Developer(100, "John Doe", "Developer");
-        Developer dev2 = new Developer(101, "Jane Doe", "Developer");
-        Manager manager = new Manager(200, "Mike", "Manager");
-        manager.addEmployee(dev1);
-        manager.addEmployee(dev2);
-        manager.showEmployeeDetails();
+        Directory root = new Directory("root");
+        Directory dir1 = new Directory("dir1");
+        Directory dir2 = new Directory("dir2");
+        File file1 = new File("file1.txt");
+        File file2 = new File("file2.jpg");
+
+        root.addElement(dir1);
+        root.addElement(dir2);
+        dir1.addElement(file1);
+        dir2.addElement(file2);
+
+        root.listFiles();
     }
 }
+```
+
+
 ```
