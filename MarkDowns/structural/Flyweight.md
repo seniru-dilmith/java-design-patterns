@@ -61,7 +61,7 @@ public class FlyweightPattern {
             Circle circle = (Circle) ShapeFactory.getCircle(getRandomColor());
             circle.setX(getRandomX());
             circle.setY(getRandomY());
-            circle.setRadius(100);
+            circle.setRadius(100 + 20*i);
             circle.draw();
         }
     }
