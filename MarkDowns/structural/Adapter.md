@@ -7,61 +7,76 @@ Adapter pattern allows objects with incompatible interfaces to collaborate. It w
 ## Java Code Example
 
 ```java
-interface MediaPlayer {
-    void play(String audioType, String fileName);
+// Target interface
+interface Socket {
+    Volt getVolt();
 }
 
-class AudioPlayer implements MediaPlayer {
-    public void play(String audioType, String fileName) {
-        if(audioType.equalsIgnoreCase("mp3")) {
-            System.out.println("Playing mp3 file. Name: " + fileName);            
-        }
+// Adaptee class
+class WallSocket {
+    public Volt getVolt() {
+        return new Volt(120);
     }
 }
 
-interface AdvancedMediaPlayer {
-    void playVlc(String fileName);
-    void playMp4(String fileName);
-}
+// Volt class to represent voltage
+class Volt {
+    private int volts;
 
-class VlcPlayer implements AdvancedMediaPlayer {
-    public void playVlc(String fileName) {
-        System.out.println("Playing vlc file. Name: " + fileName);
+    public Volt(int volts) {
+        this.volts = volts;
     }
-    public void playMp4(String fileName) { }
-}
 
-class Mp4Player implements AdvancedMediaPlayer {
-    public void playVlc(String fileName) { }
-    public void playMp4(String fileName) {
-        System.out.println("Playing mp4 file. Name: " + fileName);
+    public int getVolts() {
+        return volts;
+    }
+
+    public void setVolts(int volts) {
+        this.volts = volts;
     }
 }
 
-class MediaAdapter implements MediaPlayer {
-    AdvancedMediaPlayer advancedMusicPlayer;
-    public MediaAdapter(String audioType) {
-        if(audioType.equalsIgnoreCase("vlc")) {
-            advancedMusicPlayer = new VlcPlayer();            
-        } else if(audioType.equalsIgnoreCase("mp4")) {
-            advancedMusicPlayer = new Mp4Player();
-        }   
+// Adapter class
+class SocketAdapter implements Socket {
+    private WallSocket wallSocket;
+
+    public SocketAdapter(WallSocket wallSocket) {
+        this.wallSocket = wallSocket;
     }
-    public void play(String audioType, String fileName) {
-        if(audioType.equalsIgnoreCase("vlc")) {
-            advancedMusicPlayer.playVlc(fileName);
-        } else if(audioType.equalsIgnoreCase("mp4")) {
-            advancedMusicPlayer.playMp4(fileName);
-        }
+
+    @Override
+    public Volt getVolt() {
+        Volt v = wallSocket.getVolt();
+        return convertVolt(v, 10);
+    }
+
+    private Volt convertVolt(Volt v, int i) {
+        return new Volt(v.getVolts() / i);
     }
 }
 
-public class AdapterPattern {
+// Main class to test the Adapter pattern
+public class AdapterPatternDemo {
     public static void main(String[] args) {
-        AudioPlayer audioPlayer = new AudioPlayer();
-        audioPlayer.play("mp3", "beyond the horizon.mp3");
-        MediaPlayer mediaAdapter = new MediaAdapter("mp4");
-        mediaAdapter.play("mp4", "alone.mp4");
+        WallSocket wallSocket = new WallSocket();
+        Socket socketAdapter = new SocketAdapter(wallSocket);
+
+        Volt v120 = wallSocket.getVolt();
+        Volt v12 = socketAdapter.getVolt();
+
+        System.out.println("Wall Socket Voltage: " + v120.getVolts() + "V");
+        System.out.println("Adapter Voltage: " + v12.getVolts() + "V");
     }
 }
 ```
+
+In this example:
+
+* `Socket` is the target interface with a method `getVolt` that clients use.
+* `WallSocket` is the adaptee class with a method `getVolt` that returns 120 volts.
+* `Volt` is a class to represent voltage.
+* `SocketAdapter` is the adapter class that implements `Socket` and adapts the interface of `WallSocket` to the `Socket` interface by converting the voltage.
+* `AdapterPatternDemo` is the main class that demonstrates the usage of the adapter.
+
+When you run the `AdapterPatternDemo` class, it will use the `SocketAdapter` to convert the 120V from the `WallSocket` to 12V, demonstrating how the adapter pattern works by adapting the voltage.
+
