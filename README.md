@@ -16,28 +16,28 @@ Design patterns are divided into three main categories:
 ## Contents
 
 ### Creational Patterns
-1. [Abstract Factory](MarkDowns/creational/AbstractFactory.md)
+1. [Abstract Factory](MarkDowns/creational/AbstractFactory.md) (Virtual Constructor)
 2. [Builder](MarkDowns/creational/Builder.md)
 3. [Factory Method](MarkDowns/creational/FactoryMethod.md)
-4. [Prototype](MarkDowns/creational/Prototype.md)
+4. [Prototype](MarkDowns/creational/Prototype.md) (Clone)
 5. [Singleton](MarkDowns/creational/Singleton.md)
 
 ### Structural Patterns
-1. [Adapter](MarkDowns/structural/Adapter.md)
-2. [Bridge](MarkDowns/structural/Bridge.md)
-3. [Composite](MarkDowns/structural/Composite.md)
-4. [Decorator](MarkDowns/structural/Decorator.md)
+1. [Adapter](MarkDowns/structural/Adapter.md) (Wrapper)
+2. [Bridge](MarkDowns/structural/Bridge.md) 
+3. [Composite](MarkDowns/structural/Composite.md) (Object Tree)
+4. [Decorator](MarkDowns/structural/Decorator.md) (Wrapper)
 5. [Facade](MarkDowns/structural/Facade.md)
-6. [Flyweight](MarkDowns/structural/Flyweight.md)
+6. [Flyweight](MarkDowns/structural/Flyweight.md) (Cache)
 7. [Proxy](MarkDowns/structural/Proxy.md)
 
 ### Behavioral Patterns
-1. [Chain of Responsibility](MarkDowns/behavioural/ChainOfResponsibility.md)
-2. [Command](MarkDowns/behavioural/Command.md)
+1. [Chain of Responsibility](MarkDowns/behavioural/ChainOfResponsibility.md) (CoR / Chanin of Command)
+2. [Command](MarkDowns/behavioural/Command.md) (Action / Transaction)
 3. [Iterator](MarkDowns/behavioural/Iterator.md)
-4. [Mediator](MarkDowns/behavioural/Mediator.md)
-5. [Memento](MarkDowns/behavioural/Memento.md)
-6. [Observer](MarkDowns/behavioural/Observer.md)
+4. [Mediator](MarkDowns/behavioural/Mediator.md) (Intermediary / Controller)
+5. [Memento](MarkDowns/behavioural/Memento.md) (Snapshot)
+6. [Observer](MarkDowns/behavioural/Observer.md) (Event-Subscriber / Listener)
 7. [State](MarkDowns/behavioural/State.md)
 8. [Strategy](MarkDowns/behavioural/Strategy.md)
 9. [Template Method](MarkDowns/behavioural/TemplateMethod.md)
