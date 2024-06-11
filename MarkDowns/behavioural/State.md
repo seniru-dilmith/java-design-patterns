@@ -7,59 +7,72 @@ State pattern allows an object to alter its behavior when its internal state cha
 ## Java Code Example
 
 ```java
-interface State {
-    void doAction(Context context);
+// State interface
+interface TrafficLightState {
+    void handleRequest(TrafficLightContext context);
 }
 
-class StartState implements State {
-    public void doAction(Context context) {
-        System.out.println("Player is in start state");
-        context.setState(this);
-    }
-
-    public String toString() {
-        return "Start State";
-    }
-}
-
-class StopState implements State {
-    public void doAction(Context context) {
-        System.out.println("Player is in stop state");
-        context.setState(this);
-    }
-
-    public String toString() {
-        return "Stop State";
+// Concrete state classes
+class RedLightState implements TrafficLightState {
+    @Override
+    public void handleRequest(TrafficLightContext context) {
+        System.out.println("Red Light: Stop");
+        context.setState(new GreenLightState());
     }
 }
 
-class Context {
-    private State state;
+class YellowLightState implements TrafficLightState {
+    @Override
+    public void handleRequest(TrafficLightContext context) {
+        System.out.println("Yellow Light: Caution");
+        context.setState(new RedLightState());
+    }
+}
 
-    public Context() {
-        state = null;
+class GreenLightState implements TrafficLightState {
+    @Override
+    public void handleRequest(TrafficLightContext context) {
+        System.out.println("Green Light: Go");
+        context.setState(new YellowLightState());
+    }
+}
+
+// Context class
+class TrafficLightContext {
+    private TrafficLightState state;
+
+    public TrafficLightContext() {
+        state = new RedLightState(); // Initial state
     }
 
-    public void setState(State state) {
+    public void setState(TrafficLightState state) {
         this.state = state;
     }
 
-    public State getState() {
-        return state;
+    public void request() {
+        state.handleRequest(this);
     }
 }
 
-public class StatePattern {
-    public static void main(String[] args) {
-        Context context = new Context();
+// Client code
+public class StatePatternDemo {
+    public static void main(String[] args) throws InterruptedException {
+        TrafficLightContext trafficLight = new TrafficLightContext();
 
-        StartState startState = new StartState();
-        startState.doAction(context);
-        System.out.println(context.getState().toString());
-
-        StopState stopState = new StopState();
-        stopState.doAction(context);
-        System.out.println(context.getState().toString());
+        for (int i = 0; i < 6; i++) {
+            trafficLight.request();
+            Thread.sleep(1000);
+        }
     }
 }
 ```
+
+In this example:
+
+* `TrafficLightState` is the state interface with a method `handleRequest` that concrete state classes implement.
+* `RedLightState`, `YellowLightState`, and `GreenLightState` are concrete state classes that implement the `handleRequest` method and perform actions specific to the state they represent.
+* `TrafficLightContext` is the context class that maintains an instance of a concrete state class and provides a method to set the current state and to handle state-specific requests.
+* `StatePatternDemo` is the client code that demonstrates the usage of the state pattern.
+
+When you run the `StatePatternDemo` class, it will create a `TrafficLightContext` and repeatedly change its state by invoking the `request` method, cycling through the states `RedLightState`, `GreenLightState`, and `YellowLightState`. This demonstrates how the state pattern allows an object to alter its behavior when its internal state changes.
+
