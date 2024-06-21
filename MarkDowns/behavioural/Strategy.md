@@ -7,50 +7,122 @@ Strategy pattern defines a family of algorithms, encapsulates each one, and make
 ## Java Code Example
 
 ```java
-interface Strategy {
-    int doOperation(int num1, int num2);
+// Strategy interface
+interface PaymentStrategy {
+    void pay(int amount);
 }
 
-class OperationAdd implements Strategy {
-    public int doOperation(int num1, int num2) {
-        return num1 + num2;
+// Concrete strategy classes
+class CreditCardPayment implements PaymentStrategy {
+    private String name;
+    private String cardNumber;
+    private String cvv;
+    private String dateOfExpiry;
+
+    public CreditCardPayment(String name, String cardNumber, String cvv, String dateOfExpiry) {
+        this.name = name;
+        this.cardNumber = cardNumber;
+        this.cvv = cvv;
+        this.dateOfExpiry = dateOfExpiry;
+    }
+
+    @Override
+    public void pay(int amount) {
+        System.out.println(amount + " paid with credit card.");
     }
 }
 
-class OperationSubtract implements Strategy {
-    public int doOperation(int num1, int num2) {
-        return num1 - num2;
+class PayPalPayment implements PaymentStrategy {
+    private String emailId;
+    private String password;
+
+    public PayPalPayment(String email, String password) {
+        this.emailId = email;
+        this.password = password;
+    }
+
+    @Override
+    public void pay(int amount) {
+        System.out.println(amount + " paid using PayPal.");
     }
 }
 
-class OperationMultiply implements Strategy {
-    public int doOperation(int num1, int num2) {
-        return num1 * num2;
+// Context class
+class ShoppingCart {
+    private List<Item> items;
+
+    public ShoppingCart() {
+        this.items = new ArrayList<>();
+    }
+
+    public void addItem(Item item) {
+        items.add(item);
+    }
+
+    public void removeItem(Item item) {
+        items.remove(item);
+    }
+
+    public int calculateTotal() {
+        int sum = 0;
+        for (Item item : items) {
+            sum += item.getPrice();
+        }
+        return sum;
+    }
+
+    public void pay(PaymentStrategy paymentMethod) {
+        int amount = calculateTotal();
+        paymentMethod.pay(amount);
     }
 }
 
-class Context {
-    private Strategy strategy;
+// Item class
+class Item {
+    private String upcCode;
+    private int price;
 
-    public Context(Strategy strategy) {
-        this.strategy = strategy;
+    public Item(String upc, int cost) {
+        this.upcCode = upc;
+        this.price = cost;
     }
 
-    public int executeStrategy(int num1, int num2) {
-        return strategy.doOperation(num1, num2);
+    public String getUpcCode() {
+        return upcCode;
+    }
+
+    public int getPrice() {
+        return price;
     }
 }
 
-public class StrategyPattern {
+// Client code
+public class StrategyPatternDemo {
     public static void main(String[] args) {
-        Context context = new Context(new OperationAdd());
-        System.out.println("10 + 5 = " + context.executeStrategy(10, 5));
+        ShoppingCart cart = new ShoppingCart();
 
-        context = new Context(new OperationSubtract());
-        System.out.println("10 - 5 = " + context.executeStrategy(10, 5));
+        Item item1 = new Item("1234", 10);
+        Item item2 = new Item("5678", 40);
 
-        context = new Context(new OperationMultiply());
-        System.out.println("10 * 5 = " + context.executeStrategy(10, 5));
+        cart.addItem(item1);
+        cart.addItem(item2);
+
+        // Pay by credit card
+        cart.pay(new CreditCardPayment("John Doe", "1234567890123456", "786", "12/15"));
+
+        // Pay by PayPal
+        cart.pay(new PayPalPayment("myemail@example.com", "mypwd"));
     }
 }
+
 ```
+
+In this example:
+
+* `PaymentStrategy` is the strategy interface with a method `pay` that concrete strategy classes implement.
+* `CreditCardPayment` and `PayPalPayment` are concrete strategy classes that implement the `pay` method and provide different payment methods.
+* `ShoppingCart` is the context class that maintains a list of items and uses a `PaymentStrategy` to process payments.
+* `Item` is a class representing an item with a UPC code and price.
+* `StrategyPatternDemo` is the client code that demonstrates the usage of the strategy pattern.
+
+When you run the `StrategyPatternDemo` class, it will create a `ShoppingCart`, add items to it, and then process payments using different strategies (`CreditCardPayment` and `PayPalPayment`). This demonstrates how the strategy pattern allows the behavior of a class to be selected at runtime.
