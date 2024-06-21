@@ -13,6 +13,8 @@ Design patterns are divided into three main categories:
 2. **Structural Patterns**: These patterns explain how to assemble objects and classes into larger structures while keeping these structures flexible and efficient.
 3. **Behavioral Patterns**: These patterns are concerned with algorithms and the assignment of responsibilities between objects.
 
+![image](https://github.com/seniru-dilmith/java-design-patterns/assets/104844292/e7434b1b-9d64-423d-8425-aa7d916148b4)
+
 ## Contents
 
 ### Creational Patterns
