@@ -48,5 +48,5 @@ Design patterns are divided into three main categories:
 
 ## License
 
-This work is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
+This work is licensed under [Creative Commons Zero v1.0 Universal](LICENSE).
 
