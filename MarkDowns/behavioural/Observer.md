@@ -1,4 +1,4 @@
-# Observer
+# Observer (Event-Subscriber / Listner)
 
 ## Description
 

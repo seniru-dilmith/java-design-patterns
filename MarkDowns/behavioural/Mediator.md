@@ -1,4 +1,4 @@
-# Mediator
+# Mediator (Intermediary / Controller)
 
 ## Description
 

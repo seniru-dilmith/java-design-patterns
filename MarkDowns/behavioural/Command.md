@@ -1,4 +1,4 @@
-# Command
+# Command (Action / Transaction)
 
 ## Description
 

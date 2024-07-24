@@ -1,4 +1,4 @@
-# Decorator
+# Decorator (Wrapper)
 
 ## Description
 

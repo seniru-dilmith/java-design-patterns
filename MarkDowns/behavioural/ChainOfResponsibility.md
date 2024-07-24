@@ -1,4 +1,4 @@
-# ChainOfResponsibility
+# Chain Of Responsibility (CoR / Chain of Command)
 
 ## Description
 

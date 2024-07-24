@@ -1,4 +1,4 @@
-# AbstractFactory
+# AbstractFactory (Virtual Constructor)
 
 ## Description
 

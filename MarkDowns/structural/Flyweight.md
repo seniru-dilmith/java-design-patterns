@@ -1,4 +1,4 @@
-# Flyweight
+# Flyweight (Cache)
 
 ## Description
 
