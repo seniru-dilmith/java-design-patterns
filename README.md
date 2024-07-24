@@ -18,9 +18,9 @@ Design patterns are divided into three main categories:
 ## Contents
 
 ### Creational Patterns
-1. [Abstract Factory](MarkDowns/creational/AbstractFactory.md) (Virtual Constructor)
+1. [Abstract Factory](MarkDowns/creational/Abstract%20Factory.md) (Virtual Constructor)
 2. [Builder](MarkDowns/creational/Builder.md)
-3. [Factory Method](MarkDowns/creational/FactoryMethod.md)
+3. [Factory Method](MarkDowns/creational/Factory%20Method.md) 
 4. [Prototype](MarkDowns/creational/Prototype.md) (Clone)
 5. [Singleton](MarkDowns/creational/Singleton.md)
 
@@ -34,7 +34,7 @@ Design patterns are divided into three main categories:
 7. [Proxy](MarkDowns/structural/Proxy.md)
 
 ### Behavioral Patterns
-1. [Chain of Responsibility](MarkDowns/behavioural/ChainOfResponsibility.md) (CoR / Chanin of Command)
+1. [Chain of Responsibility](MarkDowns/behavioural/Chain%20Of%20Responsibility.md) (CoR / Chanin of Command)
 2. [Command](MarkDowns/behavioural/Command.md) (Action / Transaction)
 3. [Iterator](MarkDowns/behavioural/Iterator.md)
 4. [Mediator](MarkDowns/behavioural/Mediator.md) (Intermediary / Controller)
@@ -42,7 +42,7 @@ Design patterns are divided into three main categories:
 6. [Observer](MarkDowns/behavioural/Observer.md) (Event-Subscriber / Listener)
 7. [State](MarkDowns/behavioural/State.md)
 8. [Strategy](MarkDowns/behavioural/Strategy.md)
-9. [Template Method](MarkDowns/behavioural/TemplateMethod.md)
+9. [Template Method](MarkDowns/behavioural/Template%20Method.md)
 10. [Visitor](MarkDowns/behavioural/Visitor.md)
 11. [Interpreter](MarkDowns/behavioural/Interpreter.md)
 
