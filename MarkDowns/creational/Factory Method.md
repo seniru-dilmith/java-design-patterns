@@ -1,4 +1,4 @@
-# FactoryMethod
+# Factory Method
 
 ## Description
 

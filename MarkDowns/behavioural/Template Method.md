@@ -1,4 +1,4 @@
-# TemplateMethod
+# Template Method
 
 ## Description
 

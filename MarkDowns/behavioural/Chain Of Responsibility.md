@@ -1,4 +1,4 @@
-# ChainOfResponsibility
+# Chain Of Responsibility
 
 ## Description
 
