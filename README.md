@@ -49,6 +49,7 @@ Design patterns are divided into three main categories:
 ## Miscs
 
 - [Cheat Sheet](Markdowns/cheat-sheet.md)
+- [Code Examples](SampleCodes) - First, clone this repository and then run the examples
 
 ## License
 
